@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <bean class="com.vijay.Student" name="std1"> <property name="id" value="101" 
+		/> <property name="name" value="vijay" /> </bean> -->
+
+	<bean name="car" class="com.vijay.complexBeanProblemm.Car"
+		scope="singleton" autowire="byName">
+		<property name="carName" value="Creta" />
+		<property name="carType" value="FourWheele" />
+	<!-- 	<lookup-method name ="getEngine"  bean = "engine"/> -->
+		<lookup-method name ="getEngine"  bean = "engine1"/>
+		<!-- <constructor-arg ref="engine"/> -->
+		<!-- <property name="engine">
+			<ref bean="engine" />
+		</property> -->
+		<!-- <property name="engine">
+			<ref bean="engine1" />
+		</property> -->
+	<!-- 	<constructor-arg ref="engine"/> -->
+	</bean>
+	<bean name="engine1" class="com.vijay.complexBeanProblemm.Engine"
+		scope="prototype">
+		<property name="capacity" value="12" />
+		<property name="horcePower" value="20000" />
+		<property name="engineType" value="fourWheeler" />
+	</bean>
+	<bean name="engine" class="com.vijay.complexBeanProblemm.Engine"
+		scope="prototype">
+		<property name="capacity" value="12" />
+		<property name="horcePower" value="500" />
+		<property name="engineType" value="ThreeWheeler" />
+	</bean> 
+
+</beans>
